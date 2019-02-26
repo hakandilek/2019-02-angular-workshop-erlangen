@@ -3,4 +3,6 @@
     [book]="b"
     (rateDown)="doRateDown($event)"
     (rateUp)="doRateUp($event)"
+    [maxRating]="ratingService.maxRating"
+    [minRating]="ratingService.minRating"
     ></br-book>

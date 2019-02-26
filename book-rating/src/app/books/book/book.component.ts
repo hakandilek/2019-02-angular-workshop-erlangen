@@ -12,6 +12,12 @@ export class BookComponent {
   @Input()
   book: Book;
 
+  @Input()
+  maxRating: number;
+
+  @Input()
+  minRating: number;
+
   @Output()
   rateUp = new EventEmitter<Book>();
 

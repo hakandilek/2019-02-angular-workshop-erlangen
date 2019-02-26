@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
 
   books: Book[];
 
-  constructor(private ratingService: BookRatingService) {
+  constructor(public ratingService: BookRatingService) {
   }
 
   ngOnInit() {
