@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
+import { pipeBind1 } from '@angular/core/src/render3';
 
 @Component({
   selector: 'br-dashboard',
@@ -34,7 +35,26 @@ export class DashboardComponent implements OnInit {
         title: 'Angular',
         description: 'super buch',
         rating: 5
-      }];
+      }].sort(this.order);
   }
 
+  doRateDown(book: Book) {
+    const ratedBook = this.ratingService.rateDown(book);
+    this.updateList(ratedBook);
+  }
+
+  doRateUp(book: Book) {
+    const ratedBook = this.ratingService.rateUp(book);
+    this.updateList(ratedBook);
+  }
+
+  private updateList(ratedBook: Book) {
+    this.books = this.books
+      .map(b => b.isbn === ratedBook.isbn ? ratedBook : b)
+      .sort(this.order);
+  }
+
+  private order(b1: Book, b2: Book) {
+    return b2.isbn.localeCompare(b1.isbn);
+  }
 }
