@@ -3,7 +3,7 @@
         <img class="img-thumbnail float-right" src="//api.angular.schule/avatar/{{ book.rating }}">
         <div class="card-title">
             <h2>
-                {{ book.title }}
+                {{ book.title | uppercase }}
                 <div class="rating" *brRating="book.rating">*</div>
             </h2>
         </div>
