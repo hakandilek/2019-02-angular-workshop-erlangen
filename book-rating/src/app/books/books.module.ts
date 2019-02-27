@@ -7,6 +7,7 @@ import { BookComponent } from './book/book.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RatingDirective } from './shared/rating.directive';
 import { CreateBookComponent } from './create-book/create-book.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 @NgModule({
   declarations: [
@@ -14,14 +15,12 @@ import { CreateBookComponent } from './create-book/create-book.component';
     BookComponent,
     RatingDirective,
     CreateBookComponent,
+    BookDetailsComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     BooksRoutingModule
-  ],
-  exports: [
-    DashboardComponent
   ]
 })
 export class BooksModule { }

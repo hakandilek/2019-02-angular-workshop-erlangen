@@ -12,7 +12,10 @@
 
         <button (click)="doRateDown()" [disabled]="book.rating <= minRating" class="btn btn-secondary mr-2"> - </button>
 
-        <button (click)="doRateUp()" [disabled]="book.rating >= maxRating" class="btn btn-primary"> + </button>
+        <button (click)="doRateUp()" [disabled]="book.rating >= maxRating" class="btn btn-primary mr-2"> + </button>
 
+        <a class="btn btn-secondary"
+            [routerLink]="['/book', book.isbn]"
+            >Details...</a>
     </div>
 </div>
