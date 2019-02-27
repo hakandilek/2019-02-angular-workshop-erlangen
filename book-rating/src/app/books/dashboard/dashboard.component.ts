@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
+import { BookStoreService } from '../shared/book-store.service';
 
 @Component({
   selector: 'br-dashboard',
@@ -12,33 +13,17 @@ export class DashboardComponent implements OnInit {
 
   books: Book[];
 
-  constructor(public ratingService: BookRatingService) {
+  constructor(
+    public ratingService: BookRatingService,
+    private bookStore: BookStoreService,
+  ) {
   }
 
   ngOnInit() {
-    this.books = [
-      {
-        isbn: '000',
-        title: 'AngularJS',
-        description: 'gutes buch',
-        rating: 4,
-        price: 10
-      },
-      {
-        isbn: '001',
-        title: 'React',
-        description: 'naja',
-        rating: 3,
-        price: 1
-      },
-      {
-        isbn: '002',
-        title: 'Angular',
-        description: 'super buch',
-        rating: 5,
-        price: 34.99
-      }]
-      .sort(this.order);
+    this.bookStore.getAll().subscribe(books => {
+      this.books = books
+        .sort(this.order);
+    });
   }
 
   doRateDown(book: Book) {
@@ -66,6 +51,6 @@ export class DashboardComponent implements OnInit {
       ...this.books,
       book
     ]
-    .sort(this.order);
+      .sort(this.order);
   }
 }
