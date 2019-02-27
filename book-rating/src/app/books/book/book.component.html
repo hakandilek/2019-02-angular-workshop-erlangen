@@ -1,6 +1,7 @@
 <div class="card mb-4">
     <div class="card-body bg-light">
-        <img class="img-thumbnail float-right" src="//api.angular.schule/avatar/{{ book.rating }}">
+        <img [src]="book.firstThumbnailUrl" width="25%" class="img-thumbnail float-right">
+
         <div class="card-title">
             <h2>
                 {{ book.title | uppercase }}
