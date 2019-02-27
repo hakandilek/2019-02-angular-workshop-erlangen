@@ -8,6 +8,7 @@
             </h2>
         </div>
         <p>{{ book.description }}</p>
+        <p>{{ book.price | currency: 'EUR' }}</p>
 
         <button (click)="doRateDown()" [disabled]="book.rating <= minRating" class="btn btn-secondary mr-2"> - </button>
 
