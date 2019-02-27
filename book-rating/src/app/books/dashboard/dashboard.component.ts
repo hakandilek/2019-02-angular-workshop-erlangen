@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
-import { pipeBind1 } from '@angular/core/src/render3';
 
 @Component({
   selector: 'br-dashboard',
@@ -38,7 +37,8 @@ export class DashboardComponent implements OnInit {
         description: 'super buch',
         rating: 5,
         price: 34.99
-      }].sort(this.order);
+      }]
+      .sort(this.order);
   }
 
   doRateDown(book: Book) {
@@ -59,5 +59,13 @@ export class DashboardComponent implements OnInit {
 
   private order(b1: Book, b2: Book) {
     return b2.isbn.localeCompare(b1.isbn);
+  }
+
+  newBook(book: Book) {
+    this.books = [
+      ...this.books,
+      book
+    ]
+    .sort(this.order);
   }
 }

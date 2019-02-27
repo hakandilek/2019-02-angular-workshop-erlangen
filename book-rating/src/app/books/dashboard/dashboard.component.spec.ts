@@ -21,6 +21,14 @@ export class TestBookComponent {
   minRating: number;
 }
 
+@Component({
+  selector: 'br-create-book',
+  template: 'test create book'
+})
+export class TestCreateBookComponent {
+
+}
+
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
@@ -46,7 +54,8 @@ describe('DashboardComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         DashboardComponent,
-        TestBookComponent
+        TestBookComponent,
+        TestCreateBookComponent
       ],
       providers: [
         {
